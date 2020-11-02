@@ -27,3 +27,9 @@ lcddemo.elf: lcddemo.o libLcd.a
 
 load: lcddemo.elf
 	msp430loader.sh $^
+
+demo1.elf: demo1.o libLcd.a
+	$(CC) $(CFLAGS) $(LCDFLAGS) $^ -o $@ -lTimer
+
+load1: demo1.elf
+	msp430loader.sh $^
